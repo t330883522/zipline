@@ -19,6 +19,12 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
 - Visual Studio Community 2017
 
 
+安装
+====
+.. code:: python
+    # 首先安装cswd odo blaze empyrical
+    pip install git+https://github.com/liudengfeng/zipline
+
 增加模块
 ========
 - 从公共网站提取并更新A股数据（使用Windows任务计划程序） 
