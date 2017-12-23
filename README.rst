@@ -21,7 +21,6 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
 
 安装
 ====
-.. code:: python
     # 首先安装本频道的cswd odo blaze empyrical
     pip install git+https://github.com/liudengfeng/zipline
 
