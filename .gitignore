@@ -286,3 +286,11 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# 开发模式
+.eggs/
+dist/
+build/
+zipline.egg-info/
+*.c
+*win_amd64.pyd
