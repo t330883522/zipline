@@ -5,14 +5,14 @@
     :align: center
     :alt: Zipline
 
--------------
+=============
 
 Zipline是QUANTOPIAN开发的算法交易库。这是一个事件驱动，支持回测和实时交易的系统。
 Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ ，可以托管平台建立和执行交易策略。为直接使用A股数据进行回测，小幅度进行了改动（当前不支持分时回测）。
 
 
 特别说明
---------
+========
 - **只针对Windows10操作系统，参考环境**
 - Windows10 64位
 - python 3.6.3
@@ -20,14 +20,14 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
 
 
 增加模块
---------
+========
 - 从公共网站提取并更新A股数据（使用Windows任务计划程序） 
 - 添加基础数据\ ``fundamentals``\ 模块 
 - 增加\ ``bulitin``\ 模块
 - 整合talib，增加\ ``quantalib``\ 模块
 
 基础数据
---------
+========
 
 -  股票日线交易数据
 -  指数日线交易数据
@@ -39,22 +39,22 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
 **注** 使用Windows计划任务管理，在指定时段自动采集更新数据
 
 ``Fundamentals``
-----------------
+================
 
 ``Fundamentals``\ 是一个容器类，类似\ ``Quantopian Fundamental Data``\ ，包含\ ``pipeline``\ 所需的基本数据。如资产负债表、利润表、现金流量表、财务指标及行业分类等等，暂不包含估值部分。其属性或是单个绑定列，或是数据集，以此生成\ ``pipeline``\ 中常用的自定义因子(\ ``Factor``)，过滤器(\ ``Filter``)或是分类器(\ ``Classifier``)。
 
 ``builtin``
------------
+===========
 
 此模块包含常用的自定义因子、过滤器、分类器，以及通用的总体筛选函数。
 
 ``quantalib``
--------------
+=============
 
 整合适用于\ ``pipeline``\ 的\ ``talib``\ 。暂不包含模式识别。
 
 回测案例
---------
+========
 
 .. code:: ipython3
 
@@ -79,9 +79,9 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
     
     
     def make_pipeline():
-        rsi - RSI()
+        rsi = RSI()
         return Pipeline(
-            columns-{
+            columns={
                 'longs': rsi.top(3),
                 'shorts': rsi.bottom(3),
             },
@@ -92,16 +92,16 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
     
         # Pipeline data will be a dataframe with boolean columns named 'longs' and
         # 'shorts'.
-        pipeline_data - context.pipeline_data
-        all_assets - pipeline_data.index
+        pipeline_data = context.pipeline_data
+        all_assets = pipeline_data.index
     
-        longs - all_assets[pipeline_data.longs]
-        shorts - all_assets[pipeline_data.shorts]
+        longs = all_assets[pipeline_data.longs]
+        shorts = all_assets[pipeline_data.shorts]
     
-        record(universe_size-len(all_assets))
+        record(universe_size=len(all_assets))
     
         # Build a 2x-leveraged, equal-weight, long-short portfolio.
-        one_third - 1.0 / 3.0
+        one_third = 1.0 / 3.0
         for asset in longs:
             order_target_percent(asset, one_third)
     
@@ -109,8 +109,8 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
             order_target_percent(asset, -one_third)
     
         # Remove any assets that should no longer be in our portfolio.
-        portfolio_assets - longs | shorts
-        positions - context.portfolio.positions
+        portfolio_assets = longs | shorts
+        positions = context.portfolio.positions
         for asset in viewkeys(positions) - set(portfolio_assets):
             # This will fail if the asset was removed from our portfolio because it
             # was delisted.
@@ -130,11 +130,11 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
         # rebuild example data.
         # github.com/quantopian/zipline/blob/master/tests/resources/
         # rebuild_example_data#L105
-        context.set_commission(commission.PerShare(cost-.0075, min_trade_cost-1.0))
+        context.set_commission(commission.PerShare(cost=.0075, min_trade_cost=1.0))
     
     
     def before_trading_start(context, data):
-        context.pipeline_data - pipeline_output('my_pipeline')
+        context.pipeline_data = pipeline_output('my_pipeline')
 
 
 .. parsed-literal::
@@ -155,19 +155,19 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
 
 
 安装使用
---------
+========
 
 -  `安装参考 <https://github.com/liudengfeng/BackTest/blob/master/zipline/docs/memo/1_install_zipline.md>`__
 -  `自动刷新 <https://github.com/liudengfeng/BackTest/blob/master/zipline/docs/memo/2_auto_refresh.md>`__
 -  `使用测试 <https://github.com/liudengfeng/BackTest/tree/master/zipline/docs/memo/pipeline>`__
 
 后续
-----
+====
 
 -  修正补充
 -  进一步完善\ ``TensorBoard``
 -  整合使用\ ``tensorflow``
 
 交流
-----
+====
 
