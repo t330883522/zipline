@@ -17,9 +17,8 @@ from .factors.factor import CustomFactor
 
 np.seterr(divide='ignore', invalid='ignore')
 
-#------------------------------------------------------------------------------
-#                                  总体过滤                                   #
-#------------------------------------------------------------------------------
+#%% 过滤
+
 
 def IsStock():
     """股票过滤器"""
@@ -170,6 +169,7 @@ def SubNewStocks(days = 60):
     t_days = NDays()
     return t_days <= days
 
+#%% 因子-上市日期
 #------------------------------------------------------------------------------
 #                                  上市日期                                   #
 #------------------------------------------------------------------------------
@@ -187,9 +187,7 @@ class NDays(CustomFactor):
         days = [(baseline - pd.Timestamp(x)).days for x in ts[0]]
         out[:] = days
 
-#------------------------------------------------------------------------------
-#                                  季度股本                                   #
-#------------------------------------------------------------------------------
+#%% 因子-股本
 
 class SharesTotal(CustomFactor):
     """
@@ -230,9 +228,8 @@ class MarketCap(CustomFactor):
     def compute(self, today, assets, out, data):
         out[:] = data[-1]
 
-#------------------------------------------------------------------------------
-#                                  行    业                                   #
-#------------------------------------------------------------------------------
+#%% 因子-行业
+
 class Sector(CustomFactor):
     """部门行业"""
     window_length = 1
@@ -241,9 +238,7 @@ class Sector(CustomFactor):
     def compute(self, today, assets, out, data):
         out[:] = data
 
-#------------------------------------------------------------------------------
-#                                  财务指标                                   #
-#------------------------------------------------------------------------------
+#%% 因子-财务类
 
 def quarterly_multiplier(dates):
     """
@@ -421,10 +416,9 @@ class PriceToDividendYield(CustomFactor):
         dividend[dividend == 0.] = np.nan
         out[:] = dividend / close
 
-#------------------------------------------------------------------------------
-#                                  技术相关                                   #
-#------------------------------------------------------------------------------
+#%% 因子-技术类
 
+# # 取消验证是否能加快导入速度？
 @expect_types(df = pd.DataFrame)
 def continuous_num(df):
     """计算连续数量"""
@@ -472,9 +466,7 @@ class SuccessiveYZ(CustomFactor):
         out.zt = continuous_num(yz_zt).values
         out.dt = continuous_num(yz_dt).values
 
-#------------------------------------------------------------------------------
-#                                  指数相关                                   #
-#------------------------------------------------------------------------------
+#%% 因子-指数相关
 
 class IndexBeta(CustomFactor):
     """
@@ -547,9 +539,8 @@ class Downside_Beta(CustomFactor):
         out[:] = betas
 
 
-#------------------------------------------------------------------------------
-#                                  模式识别                                   #
-#------------------------------------------------------------------------------
+#%% 因子-模式识别
+
 class CDL_Patterns(CustomFactor):
     """
     模式识别（所有模式，多输出）
@@ -595,6 +586,7 @@ class CDL_Patterns(CustomFactor):
         N = len(assets)
         for func_name in self.outputs:
             self._one_pattern(out, func_name, opens, highs, lows, closes, N)
+
 
 
 # # 常用别名
