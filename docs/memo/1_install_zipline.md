@@ -15,7 +15,8 @@
 
 + **注意**
 	+ 如果升级`odo`和`blaze`包，请注意`networkx`用法更改部分
-	+ 安装zipline之前，首先使用`conda`安装`Bottleneck`和`statsmodels`
+	+ 安装zipline之前，首先应安装`Bottleneck`和`statsmodels`
+	+ 机器学习及优化包，务必在成功安装`zipline`之后才安装
 
 # 依赖包
 
