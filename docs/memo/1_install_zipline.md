@@ -1,22 +1,9 @@
 
 # 前置条件
 + 新建`zipline`环境（名称随意，以下均假定在此环境下安装）
-+ 安装`cswd`数据包及改版后的`odo`及`blaze`
-
-> pip install odo datashape blaze
-
-> pip uninstall odo blaze
++ 安装`cswd`数据包
 
 > pip install git+https://github.com/liudengfeng/cswd
-
-> pip install git+https://github.com/liudengfeng/odo
-
-> pip install git+https://github.com/liudengfeng/blaze
-
-+ **注意**
-	+ 如果升级`odo`和`blaze`包，请注意`networkx`用法更改部分
-	+ 安装zipline之前，首先应安装`Bottleneck`和`statsmodels`
-	+ 机器学习及优化包，务必在成功安装`zipline`之后才安装
 
 # 依赖包
 
@@ -37,3 +24,15 @@
     + 进入`setup.py`所在的目录
     + `python setup.py build_ext --inplace`
     + `python setup.py develop`
++ 重新安装本地`odo`和`blaze`
+	+ 移除原有`odo`及`blaze`
+	+ 安装改版`odo`和`blaze`
+
+> pip install git+https://github.com/liudengfeng/odo
+
+> pip install git+https://github.com/liudengfeng/blaze
+
++ **注意**
+	+ 如果升级`odo`和`blaze`包，请注意`networkx`用法更改部分
+	+ 安装zipline之前，首先应安装`Bottleneck`和`statsmodels`
+	+ 机器学习及优化包，务必在成功安装`zipline`之后才安装
