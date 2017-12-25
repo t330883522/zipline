@@ -162,9 +162,9 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
 安装使用
 ========
 
--  `安装参考 <https://github.com/liudengfeng/BackTest/blob/master/zipline/docs/memo/1_install_zipline.md>`__
--  `自动刷新 <https://github.com/liudengfeng/BackTest/blob/master/zipline/docs/memo/2_auto_refresh.md>`__
--  `使用测试 <https://github.com/liudengfeng/BackTest/tree/master/zipline/docs/memo/pipeline>`__
+-  `安装参考 <https://github.com/liudengfeng/zipline/blob/master/docs/memo/1_install_zipline.md>`__
+-  `自动刷新 <https://github.com/liudengfeng/zipline/blob/master/docs/memo/2_auto_refresh.md>`__
+-  `使用测试 <https://github.com/liudengfeng/zipline/tree/master/docs/memo/pipeline>`__
 
 后续
 ====
