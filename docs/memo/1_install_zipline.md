@@ -13,7 +13,9 @@
 
 > pip install git+https://github.com/liudengfeng/blaze
 
-**注意**：如果升级`odo`和`blaze`包，请注意`networkx`用法更改部分
++ **注意**
+	+ 如果升级`odo`和`blaze`包，请注意`networkx`用法更改部分
+	+ 安装zipline之前，首先使用`conda`安装`Bottleneck`和`statsmodels`
 
 # 依赖包
 

@@ -1,7 +1,7 @@
 # Incompatible with earlier PIP versions
 pip>=9.0.0
 # bcolz fails to install if this is not in the build_requires.
-setuptools>=38.0.0
+setuptools>=36.5.0
 
 # Logging
 Logbook>=1.1.0
