@@ -11,7 +11,7 @@ from unittest import TestCase
 
 import numpy as np
 import pandas as pd
-#from nose_parameterized import parameterized
+#from parameterized import parameterized
 from parameterized import parameterized
 from pandas import read_csv
 # # 注释

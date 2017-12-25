@@ -4,7 +4,7 @@
 
 import os
 
-from nose_parameterized import parameterized
+from parameterized import parameterized
 import pandas as pd
 import sqlalchemy as sa
 from toolz import valmap
