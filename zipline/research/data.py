@@ -105,13 +105,13 @@ def get_pricing(codes, fields = 'close', start = None, end = None,
     fields = ensure_list(fields)
     dfs = []
     for code in codes:
-        df = _pricing_factory(code, fields, start, end, normalize)
         try:
-            # 防止空数据
-            df['code'] = code
-            dfs.append(df)
+            # 可能期间不存在数据
+            df = _pricing_factory(code, fields, start, end, normalize)
         except:
-            pass
+            df = pd.DataFrame()
+        df['code'] = code
+        dfs.append(df)
     res = pd.concat(dfs)
     res.set_index('code', append=True, inplace=True)
     res.sort_index(level=0, inplace=True)
