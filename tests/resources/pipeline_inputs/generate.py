@@ -1,7 +1,7 @@
 """
 Quick and dirty script to generate test case inputs.
 """
-from __future__ import print_function
+
 from os.path import (
     dirname,
     join,

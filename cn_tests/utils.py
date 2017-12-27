@@ -1,11 +1,11 @@
 from functools import lru_cache
-from cswd.websource.utils import ensure_list
-from cswd.sqldata.core import fetch_single_stock_equity
 import pandas as pd
 from odo import odo
-from zipline.pipeline.data import STOCK_DB
 
+from zipline.pipeline.fundamentals.base import STOCK_DB
 from cswd.websource.utils import MARKET_START
+from cswd.websource.utils import ensure_list
+from cswd.sqldata.core import fetch_single_stock_equity
 
 def symbols_to_sids(symbols):
     """股票代码转换为sid"""

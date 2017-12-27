@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 from zipline.assets import AssetFinder
 
 from .classifiers import Classifier, CustomClassifier

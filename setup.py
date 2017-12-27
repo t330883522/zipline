@@ -289,7 +289,7 @@ conditional_arguments = {
 setup(
     name='zipline',
     url="http://zipline.io",
-    version='1.2.0', # versioneer.get_version(),
+    version='1.2.0',#versioneer.get_version(),
     cmdclass=LazyBuildExtCommandClass(versioneer.get_cmdclass()),
     description='A backtester for financial algorithms.',
     entry_points={

@@ -287,10 +287,11 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-# 开发模式
-.eggs/
-dist/
-build/
-zipline.egg-info/
+# develop
+
+/build/lib.win-amd64-3.6/zipline
+/dist
 *.c
-*win_amd64.pyd
+/zipline.egg-info
+*.pyd
+/zipline/zipline.egg-info

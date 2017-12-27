@@ -8,7 +8,7 @@ from zipline.pipeline import Fundamentals
 from zipline.pipeline import Pipeline
 from zipline.pipeline.filters import StaticSids
 
-from cn_tests.utils import select_by_sid
+from ..utils import select_by_sid
 
 def make_dividend_pipeline():
     dividend = Fundamentals.dividend.latest
