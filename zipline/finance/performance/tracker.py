@@ -62,7 +62,7 @@ from __future__ import division
 import logbook
 
 import pandas as pd
-from pandas.tseries.tools import normalize_date
+from pandas.core.tools.datetimes import normalize_date
 
 from zipline.finance.performance.period import PerformancePeriod
 from zipline.errors import NoFurtherDataError
