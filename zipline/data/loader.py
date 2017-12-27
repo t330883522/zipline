@@ -123,19 +123,15 @@ def load_market_data(trading_day=None, trading_days=None, bm_symbol='000300',
     last_date = trading_days[trading_days.get_loc(now, method='ffill') - offset]
 
     br = get_benchmark_returns(bm_symbol, first_date, last_date)
-
     tc = treasuries_cn.get_treasury_data(first_date, last_date)
+
+    # combine dt indices and reindex using ffill then bfill
+    all_dt = br.index.union(tc.index)
+    br = br.reindex(all_dt, method='ffill').fillna(method='bfill')
+    tc = tc.reindex(all_dt, method='ffill').fillna(method='bfill')
 
     benchmark_returns = br[br.index.slice_indexer(first_date, last_date)]
     treasury_curves = tc[tc.index.slice_indexer(first_date, last_date)]
-
-    msg_fmt = 'Read benchmark and treasury data for {} from {} to {}'
-
-    logger.info(
-        msg_fmt.format(bm_symbol, 
-                       (first_date - trading_day).strftime('%Y-%m-%d'),
-                       last_date.strftime('%Y-%m-%d'))
-    )
     return benchmark_returns, treasury_curves
 
 
