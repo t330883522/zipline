@@ -17,7 +17,7 @@ from collections import OrderedDict
 from numpy import array, append, nan, full
 from numpy.testing import assert_almost_equal
 import pandas as pd
-#from pandas.tslib import Timedelta
+from pandas.tslib import Timedelta
 
 from zipline.assets import Equity, Future
 from zipline.data.data_portal import HISTORY_FREQUENCIES, OHLCV_FIELDS
@@ -384,7 +384,7 @@ class DataPortalTestBase(WithDataPortal,
 
         july_9_dt = self.trading_calendar.open_and_close_for_session(
             pd.Timestamp("2015-07-09", tz='UTC')
-        )[0] + pd.Timedelta("30 minutes")
+        )[0] + Timedelta("30 minutes")
 
         self.assertEqual(
             (3 * 390) + 31,
@@ -407,7 +407,7 @@ class DataPortalTestBase(WithDataPortal,
         # of 11/30
         nov_30_dt = self.trading_calendar.open_and_close_for_session(
             pd.Timestamp("2015-11-30", tz='UTC')
-        )[0] + pd.Timedelta("30 minutes")
+        )[0] + Timedelta("30 minutes")
 
         self.assertEqual(
             390 + 390 + 210 + 31,

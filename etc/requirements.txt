@@ -74,7 +74,7 @@ intervaltree>=2.1.0
 lru-dict>=1.1.4
 
 # For financial risk calculations
-empyrical>=0.3.2
+empyrical>=0.3.3
 
 tables>=3.4.2
 cswd>=1.1

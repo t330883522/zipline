@@ -15,7 +15,7 @@
 from datetime import timedelta, time
 from itertools import chain
 
-from parameterized import parameterized
+from nose_parameterized import parameterized
 import numpy as np
 from numpy import nan
 from numpy.testing import assert_almost_equal
@@ -42,12 +42,10 @@ from zipline.testing.fixtures import (
 )
 from zipline.utils.calendars import get_calendar
 from zipline.utils.calendars.trading_calendar import days_at_time
-from zipline.data.us_equity_pricing import ADJUST_FACTOR
 
 OHLC = ["open", "high", "low", "close"]
 OHLCP = OHLC + ["price"]
 ALL_FIELDS = OHLCP + ["volume", "last_traded"]
-ALL_FIELDS = list(set(ALL_FIELDS + list(ADJUST_FACTOR.keys())))
 
 # offsets used in test data
 field_info = {

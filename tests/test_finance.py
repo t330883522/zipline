@@ -15,7 +15,6 @@
 
 """
 Tests for the zipline.finance package
-OK
 """
 from datetime import datetime, timedelta
 import os

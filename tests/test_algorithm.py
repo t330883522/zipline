@@ -24,7 +24,7 @@ import logbook
 import toolz
 from logbook import TestHandler, WARNING
 from mock import MagicMock
-from parameterized import parameterized
+from nose_parameterized import parameterized
 from six import iteritems, itervalues, string_types
 from six.moves import range
 from testfixtures import TempDirectory
@@ -499,7 +499,7 @@ def log_nyse_close(context, data):
             from zipline.utils.calendars import get_calendar
 
             def initialize(context):
-                schedule_function(func=my_func, calendar=get_calendar())
+                schedule_function(func=my_func, calendar=get_calendar('NYSE'))
 
             def my_func(context, data):
                 pass
@@ -4832,7 +4832,7 @@ class TestPanelData(WithTradingEnvironment, ZiplineTestCase):
          pd.Timestamp('2015-12-24', tz='UTC'),),
     ])
     def test_panel_data(self, data_frequency, start_dt, end_dt):
-        trading_calendar = get_calendar()
+        trading_calendar = get_calendar('NYSE')
         if data_frequency == 'daily':
             history_freq = '1d'
             create_df_for_asset = create_daily_df_for_asset
@@ -4906,7 +4906,7 @@ class TestPanelData(WithTradingEnvironment, ZiplineTestCase):
 
     def test_minute_panel_daily_history(self):
         sids = range(1, 3)
-        trading_calendar = get_calendar()
+        trading_calendar = get_calendar('NYSE')
         start_dt = pd.Timestamp('2015-12-23', tz='UTC')
         end_dt = pd.Timestamp('2015-12-30', tz='UTC')
 

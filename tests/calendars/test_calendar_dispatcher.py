@@ -1,6 +1,5 @@
 """
 Tests for TradingCalendarDispatcher.
-通过
 """
 from zipline.errors import (
     CalendarNameCollision,

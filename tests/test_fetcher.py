@@ -12,7 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from parameterized import parameterized
+from nose_parameterized import parameterized
 
 import pandas as pd
 import numpy as np
@@ -395,7 +395,7 @@ def handle_data(context, data):
 
             algocode = """
 from pandas import Timestamp
-from pandas.core.tools.datetimes import normalize_date
+from pandas.tseries.tools import normalize_date
 from zipline.api import fetch_csv, record, sid, get_datetime
 
 def initialize(context):

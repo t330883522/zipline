@@ -14,7 +14,7 @@
 # limitations under the License.
 from textwrap import dedent
 
-from parameterized import parameterized
+from nose_parameterized import parameterized
 import numpy as np
 from numpy import nan
 import pandas as pd
@@ -1390,7 +1390,7 @@ class MinuteEquityHistoryTestCase(WithHistory, ZiplineTestCase):
             'window, start the backtest on or after 2014-01-06.'
         )
         for field in OHLCP:
-            with self.assertRaisesRegex(
+            with self.assertRaisesRegexp(
                     HistoryWindowStartsBeforeData, exp_msg):
                 self.data_portal.get_history_window(
                     [self.ASSET1],
@@ -1956,7 +1956,7 @@ class DailyEquityHistoryTestCase(WithHistory, ZiplineTestCase):
             'window, start the backtest on or after 2014-01-09.'
         )
 
-        with self.assertRaisesRegex(HistoryWindowStartsBeforeData, exp_msg):
+        with self.assertRaisesRegexp(HistoryWindowStartsBeforeData, exp_msg):
             self.data_portal.get_history_window(
                 [self.ASSET1],
                 second_day,
@@ -1966,7 +1966,7 @@ class DailyEquityHistoryTestCase(WithHistory, ZiplineTestCase):
                 'daily',
             )[self.ASSET1]
 
-        with self.assertRaisesRegex(HistoryWindowStartsBeforeData, exp_msg):
+        with self.assertRaisesRegexp(HistoryWindowStartsBeforeData, exp_msg):
             self.data_portal.get_history_window(
                 [self.ASSET1],
                 second_day,
@@ -1980,7 +1980,7 @@ class DailyEquityHistoryTestCase(WithHistory, ZiplineTestCase):
         first_minute = \
             self.trading_calendar.schedule.market_open[self.TRADING_START_DT]
 
-        with self.assertRaisesRegex(HistoryWindowStartsBeforeData, exp_msg):
+        with self.assertRaisesRegexp(HistoryWindowStartsBeforeData, exp_msg):
             self.data_portal.get_history_window(
                 [self.ASSET2],
                 first_minute,

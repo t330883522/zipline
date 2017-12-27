@@ -15,7 +15,7 @@
 """
 Tests for USEquityPricingLoader and related classes.
 """
-from parameterized import parameterized
+from nose_parameterized import parameterized
 from numpy import (
     arange,
     datetime64,

@@ -7,7 +7,7 @@ from os.path import (
     realpath,
 )
 
-from parameterized import parameterized
+from nose_parameterized import parameterized
 import numpy as np
 from numpy import (
     array,
@@ -27,7 +27,7 @@ from pandas import (
     Series,
     Timestamp,
 )
-from pandas.core.tools.datetimes import normalize_date
+from pandas.tseries.tools import normalize_date
 from six import iteritems, itervalues
 
 from zipline.algorithm import TradingAlgorithm

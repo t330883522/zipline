@@ -1,11 +1,7 @@
-"""
-nosetests 测试通过。应该与setupClass有关
-"""
-
 from unittest import TestCase
 import pandas as pd
 
-from tests.calendars.test_trading_calendar import ExchangeCalendarTestBase
+from .test_trading_calendar import ExchangeCalendarTestBase
 from zipline.utils.calendars.exchange_calendar_nyse import NYSEExchangeCalendar
 
 

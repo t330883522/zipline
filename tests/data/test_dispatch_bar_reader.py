@@ -1,6 +1,16 @@
-"""
-案例不匹配
-"""
+# Copyright 2016 Quantopian, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 from numpy import array, nan
 from numpy.testing import assert_almost_equal
 from pandas import DataFrame, Timestamp
@@ -32,7 +42,7 @@ class AssetDispatchSessionBarTestCase(WithBcolzEquityDailyBarReader,
                                       WithTradingSessions,
                                       ZiplineTestCase):
 
-    TRADING_CALENDAR_STRS = ('us_futures', 'SZSH')
+    TRADING_CALENDAR_STRS = ('us_futures', 'NYSE')
     TRADING_CALENDAR_PRIMARY_CAL = 'us_futures'
 
     ASSET_FINDER_EQUITY_SIDS = 1, 2, 3
@@ -69,7 +79,7 @@ class AssetDispatchSessionBarTestCase(WithBcolzEquityDailyBarReader,
 
     @classmethod
     def make_equity_daily_bar_data(cls):
-        sessions = cls.trading_sessions['SZSH']
+        sessions = cls.trading_sessions['NYSE']
         yield 1, DataFrame({
             'open': [100.5, 101.5, nan],
             'high': [100.9, 101.9, nan],
@@ -161,7 +171,7 @@ class AssetDispatchMinuteBarTestCase(WithBcolzEquityMinuteBarReader,
                                      WithBcolzFutureMinuteBarReader,
                                      ZiplineTestCase):
 
-    TRADING_CALENDAR_STRS = ('us_futures', 'SZSH')
+    TRADING_CALENDAR_STRS = ('us_futures', 'NYSE')
     TRADING_CALENDAR_PRIMARY_CAL = 'us_futures'
 
     ASSET_FINDER_EQUITY_SIDS = 1, 2, 3

@@ -34,7 +34,7 @@ class WithPanelBarReader(WithAssetFinder):
         super(WithPanelBarReader, cls).init_class_fixtures()
 
         finder = cls.asset_finder
-        trading_calendar = get_calendar()
+        trading_calendar = get_calendar('NYSE')
 
         items = finder.retrieve_all(finder.sids)
         major_axis = (

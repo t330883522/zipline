@@ -15,7 +15,7 @@
 from sys import maxsize
 import re
 
-from parameterized import parameterized
+from nose_parameterized import parameterized
 from numpy import (
     arange,
     datetime64,
@@ -407,5 +407,5 @@ class BcolzDailyBarWriterMissingDataTestCase(WithAssetFinder,
             "[Timestamp('2015-06-15 00:00:00+0000', tz='UTC')]\n"
             "Extra sessions: []"
         )
-        with self.assertRaisesRegex(AssertionError, expected_msg):
+        with self.assertRaisesRegexp(AssertionError, expected_msg):
             writer.write(bar_data)

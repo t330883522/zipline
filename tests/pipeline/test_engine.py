@@ -6,7 +6,7 @@ from collections import OrderedDict
 from itertools import product
 from operator import add, sub
 
-from parameterized import parameterized
+from nose_parameterized import parameterized
 from numpy import (
     arange,
     array,
@@ -209,7 +209,7 @@ class ConstantInputTestCase(WithConstantInputs, ZiplineTestCase):
         p = Pipeline()
 
         msg = "start_date must be before or equal to end_date .*"
-        with self.assertRaisesRegex(ValueError, msg):
+        with self.assertRaisesRegexp(ValueError, msg):
             engine.run_pipeline(p, self.dates[2], self.dates[1])
 
     def test_fail_usefully_on_insufficient_data(self):

@@ -27,7 +27,7 @@ from unittest import TestCase
 import uuid
 import warnings
 
-from parameterized import parameterized
+from nose_parameterized import parameterized
 from numpy import full, int32, int64
 import pandas as pd
 from pandas.util.testing import assert_frame_equal
@@ -257,14 +257,14 @@ class AssetTestCase(TestCase):
     def test_asset_object(self):
         the_asset = Asset(5061, exchange="bar")
 
-        self.assertEqual({5061: 'foo'}[the_asset], 'foo')
-        self.assertEqual(the_asset, 5061)
-        self.assertEqual(5061, the_asset)
+        self.assertEquals({5061: 'foo'}[the_asset], 'foo')
+        self.assertEquals(the_asset, 5061)
+        self.assertEquals(5061, the_asset)
 
-        self.assertEqual(the_asset, the_asset)
-        self.assertEqual(int(the_asset), 5061)
+        self.assertEquals(the_asset, the_asset)
+        self.assertEquals(int(the_asset), 5061)
 
-        self.assertEqual(str(the_asset), 'Asset(5061)')
+        self.assertEquals(str(the_asset), 'Asset(5061)')
 
     def test_to_and_from_dict(self):
         asset_from_dict = Asset.from_dict(self.asset.to_dict())
@@ -1084,7 +1084,7 @@ class AssetFinderTestCase(WithTradingCalendars, ZiplineTestCase):
         self.assertEqual(asset_1.sid, 1)
 
         # We don't know about this ALT_ID yet.
-        with self.assertRaisesRegex(
+        with self.assertRaisesRegexp(
             ValueNotFoundForField,
             "Value '{}' was not found for field '{}'.".format(
                 '100000002',
@@ -1111,7 +1111,7 @@ class AssetFinderTestCase(WithTradingCalendars, ZiplineTestCase):
             "Multiple occurrences of the value '{}' found for field '{}'."
         ).format('100000000', 'ALT_ID')
 
-        with self.assertRaisesRegex(
+        with self.assertRaisesRegexp(
             MultipleValuesFoundForField,
             expected_in_repr,
         ):
@@ -1194,7 +1194,7 @@ class AssetFinderTestCase(WithTradingCalendars, ZiplineTestCase):
 
         # Since sid 2 has not yet started, we don't know about its
         # ALT_ID.
-        with self.assertRaisesRegex(
+        with self.assertRaisesRegexp(
             NoValueForSid,
             "No '{}' value found for sid '{}'.".format('ALT_ID', 2),
         ):
@@ -1212,7 +1212,7 @@ class AssetFinderTestCase(WithTradingCalendars, ZiplineTestCase):
             )
 
         # Sid 0 has historically held two values for ALT_ID by this dt.
-        with self.assertRaisesRegex(
+        with self.assertRaisesRegexp(
             MultipleValuesFoundForSid,
             "Multiple '{}' values found for sid '{}'.".format('ALT_ID', 0),
         ):

@@ -6,7 +6,7 @@ from itertools import chain, product
 from textwrap import dedent
 from unittest import TestCase
 
-from parameterized import parameterized
+from nose_parameterized import parameterized
 from numpy import (
     arange,
     array,

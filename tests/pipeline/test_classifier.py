@@ -15,7 +15,7 @@ from zipline.utils.numpy_utils import (
     int64_dtype,
 )
 
-from tests.pipeline.base import BasePipelineTestCase
+from .base import BasePipelineTestCase
 
 
 bytes_dtype = np.dtype('S3')

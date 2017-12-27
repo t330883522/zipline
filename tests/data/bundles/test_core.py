@@ -1,10 +1,6 @@
-"""
-通过
-"""
-
 import os
 
-from parameterized import parameterized
+from nose_parameterized import parameterized
 import pandas as pd
 import sqlalchemy as sa
 from toolz import valmap
@@ -127,7 +123,7 @@ class BundleCoreTestCase(WithInstanceTmpDir,
         assert_true(called[0])
 
     def test_ingest(self):
-        calendar = get_calendar()
+        calendar = get_calendar('NYSE')
         sessions = calendar.sessions_in_range(self.START_DATE, self.END_DATE)
         minutes = calendar.minutes_for_sessions_in_range(
             self.START_DATE, self.END_DATE,
@@ -159,7 +155,7 @@ class BundleCoreTestCase(WithInstanceTmpDir,
 
         @self.register(
             'bundle',
-            calendar_name='SZSH',
+            calendar_name='NYSE',
             start_session=self.START_DATE,
             end_session=self.END_DATE,
         )
@@ -278,7 +274,7 @@ class BundleCoreTestCase(WithInstanceTmpDir,
             called[0] = True
 
         now = pd.Timestamp.utcnow()
-        with self.assertRaisesRegex(ValueError,
+        with self.assertRaisesRegexp(ValueError,
                                      "ingest .* creates writers .* downgrade"):
             self.ingest('bundle', self.environ, assets_versions=versions,
                         timestamp=now - pd.Timedelta(seconds=1))
@@ -373,7 +369,7 @@ class BundleCoreTestCase(WithInstanceTmpDir,
         """
         if not self.bundles:
             @self.register('bundle',
-                           calendar_name='SZSH',
+                           calendar_name='NYSE',
                            start_session=pd.Timestamp('2014', tz='UTC'),
                            end_session=pd.Timestamp('2014', tz='UTC'))
             def _(environ,

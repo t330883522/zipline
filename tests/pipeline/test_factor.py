@@ -3,7 +3,7 @@ Tests for Factor terms.
 """
 from functools import partial
 from itertools import product
-from parameterized import parameterized
+from nose_parameterized import parameterized
 from unittest import TestCase
 
 from toolz import compose

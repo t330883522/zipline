@@ -193,5 +193,5 @@ class PipelineTestCase(TestCase):
             r"but got 'fizzbuzz' instead."
         )
 
-        with self.assertRaisesRegex(ValueError, expected):
+        with self.assertRaisesRegexp(ValueError, expected):
             p.show_graph(format='fizzbuzz')
