@@ -295,3 +295,4 @@ __pycache__/
 /zipline.egg-info
 *.pyd
 /zipline/zipline.egg-info
+*.pyproj
