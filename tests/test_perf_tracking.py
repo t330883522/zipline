@@ -22,7 +22,7 @@ from datetime import (
 )
 import logging
 
-from nose_parameterized import parameterized
+from parameterized import parameterized
 import nose.tools as nt
 import pytz
 
