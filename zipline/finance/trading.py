@@ -87,6 +87,7 @@ class TradingEnvironment(object):
     ):
 
         self.bm_symbol = bm_symbol
+
         if not load:
             load = partial(load_market_data, environ=environ)
         # # 默认值为A股交易日历
