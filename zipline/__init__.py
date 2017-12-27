@@ -43,7 +43,7 @@ if global_calendar_dispatcher._calendars:
 del global_calendar_dispatcher
 
 
-__version__ = get_versions()['version']
+__version__ = '1.2.0' #get_versions()['version']
 del get_versions
 
 
