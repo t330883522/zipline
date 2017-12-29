@@ -289,10 +289,11 @@ __pycache__/
 
 # develop
 
-/build/lib.win-amd64-3.6/zipline
-/dist
+build/
+dist/
 *.c
-/zipline.egg-info
 *.pyd
-/zipline/zipline.egg-info
+zipline.egg-info/
+zipline/zipline.egg-info/
 *.pyproj
+*.sln
