@@ -6,7 +6,7 @@ import datetime as dt
 
 from pytz import timezone
 
-from cswd.websource.utils import MARKET_START
+from cswd.constants import MARKET_START
 from cswd.dataproxy.data_proxies import non_trading_days_reader
 
 from zipline.utils.calendars import TradingCalendar

@@ -3,8 +3,9 @@ import pandas as pd
 from odo import odo
 
 from zipline.pipeline.fundamentals.base import STOCK_DB
-from cswd.websource.utils import MARKET_START
-from cswd.websource.utils import ensure_list
+
+from cswd.constants import MARKET_START
+from cswd.utils import ensure_list
 from cswd.sqldata.core import fetch_single_stock_equity
 
 def symbols_to_sids(symbols):
