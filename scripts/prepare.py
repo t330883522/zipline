@@ -31,8 +31,7 @@ def to_bcolz():
     duration = format(time.time() - ingest_start_time, '0.2f')
     log.info('耗时{}秒'.format(duration))
 
-
-if __name__ == '__main__':
+def main():
     # 同步刷新测试集
     # 保留最近2项数据包
     for bundle_name in ('cnstock','.test'):

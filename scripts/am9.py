@@ -20,7 +20,3 @@ def to_bcolz():
     convert_sql_data_to_bcolz()
     duration = format(time.time() - ingest_start_time, '0.2f')
     log.info('耗时{}秒'.format(duration))
-
-
-if __name__ == '__main__':
-    to_bcolz()

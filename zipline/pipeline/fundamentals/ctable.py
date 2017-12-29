@@ -13,7 +13,7 @@ from logbook import Logger
 from odo import odo
 import re
 
-from cswd.websource.utils import data_root
+from cswd.utils import data_root
 
 from .base import STOCK_DB
 from .utils import _normalize_ad_ts_sid

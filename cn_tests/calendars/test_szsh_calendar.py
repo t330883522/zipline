@@ -5,7 +5,7 @@ import numpy as np
 from pandas.util.testing import assert_index_equal
 from parameterized import parameterized
 
-from zipline.cntesting.predicates import assert_equal
+from zipline.predicates import assert_equal
 from zipline.utils.calendars.exchange_calendar_szsh import SZSHExchangeCalendar
 import cn_tests
 

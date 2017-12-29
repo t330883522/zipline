@@ -291,9 +291,12 @@ setup(
     version='1.2.0',#versioneer.get_version(),
     cmdclass=LazyBuildExtCommandClass(versioneer.get_cmdclass()),
     description='A backtester for financial algorithms.',
+    scripts=['scripts/am9.py','scripts/prepare.py'],
     entry_points={
         'console_scripts': [
             'zipline = zipline.__main__:main',
+            'margin_data_to_bcolz = am9:to_bcolz',
+            'daily_ingest = prepare:main',
         ],
     },
     author='Quantopian Inc.',
@@ -311,9 +314,6 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Operating System :: OS Independent',
         'Intended Audience :: Science/Research',

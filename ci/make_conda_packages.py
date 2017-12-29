@@ -58,4 +58,4 @@ if __name__ == '__main__':
     main(env,
          do_upload=((env.get('ANACONDA_TOKEN')
                      and env.get('APPVEYOR_REPO_BRANCH') == 'master')
-                    and 'APPVEYOR_PULL_REQUEST_NUMBER' not in env))
+                     and 'APPVEYOR_PULL_REQUEST_NUMBER' not in env))

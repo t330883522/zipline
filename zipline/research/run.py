@@ -5,7 +5,7 @@
 """
 import pandas as pd
 
-from cswd.websource.utils import sanitize_dates
+from cswd.utils import sanitize_dates
 
 from zipline.pipeline import Pipeline
 from zipline.pipeline.engine import SimplePipelineEngine

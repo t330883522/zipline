@@ -466,6 +466,38 @@ class SuccessiveYZ(CustomFactor):
         out.zt = continuous_num(yz_zt).values
         out.dt = continuous_num(yz_dt).values
 
+
+class HistoricalZScore(CustomFactor):
+    """
+    纵向zscore值因子。反应当前数据在窗口数据集中相对位置。
+    
+    Notes:
+    ------
+        区别于`zipline`计算，只与列自身历史数据相关。
+    """
+    #mask = IsStock()
+    #mask = StaticSids([1, 2, 333])
+    #outputs = ['close_zscore', 'volume_zscore']
+    #inputs = [USEquityPricing.close, USEquityPricing.volume]
+    window_safe = True
+    def _validate(self):
+        super(HistoricalZScore, self)._validate()
+        if self.window_length < 3:
+            raise ValueError(
+                "`HistoricalZScore`窗口长度至少为3，少于3没有实际意义。"
+                "实际输入窗口数量 {window_length}"
+                "".format(window_length=self.window_length)
+            )  
+        if len(self.inputs) != 1:
+            raise ValueError(
+                "`HistoricalZScore`只接受单列，但输入了{length}列。"
+                "".format(length=len(self.inputs))
+            ) 
+            
+    def compute(self, today, assets, out, values):
+        out[:] = (values[-1] - np.nanmean(values,0)) / np.nanstd(values,0)
+
+
 #%% 因子-指数相关
 
 class IndexBeta(CustomFactor):

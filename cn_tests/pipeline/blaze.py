@@ -3,7 +3,7 @@ from pandas.testing import assert_frame_equal
 
 import pandas as pd
 
-from zipline.component.research import run_pipeline
+from zipline.research import run_pipeline
 from zipline.pipeline import Fundamentals
 from zipline.pipeline import Pipeline
 from zipline.pipeline.filters import StaticSids

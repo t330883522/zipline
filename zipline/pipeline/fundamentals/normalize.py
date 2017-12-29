@@ -41,7 +41,7 @@ from collections import OrderedDict
 from datashape import var, Record, Option
 from odo import discover, odo
 
-from cswd.websource.utils import ensure_list
+from cswd.utils import ensure_list
 
 from ..loaders.blaze import global_loader, from_blaze
 

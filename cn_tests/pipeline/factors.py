@@ -7,15 +7,15 @@ from zipline.pipeline import Pipeline
 from zipline.pipeline.data import USEquityPricing
 from zipline.pipeline.filters import StaticSids
 
-from zipline.component.factors import HistoricalZscore
-from zipline.component.research import run_pipeline
+from zipline.pipeline.builtin import HistoricalZScore
+from zipline.research import run_pipeline
 
 
 def make_pipeline():
     return Pipeline(
         columns = {
-            'close_zscore':HistoricalZscore(window_length=4, inputs=[USEquityPricing.close]),
-            'volume_zscore':HistoricalZscore(window_length=4, inputs=[USEquityPricing.volume]),
+            'close_zscore':HistoricalZScore(window_length=4, inputs=[USEquityPricing.close]),
+            'volume_zscore':HistoricalZScore(window_length=4, inputs=[USEquityPricing.volume]),
         },
         screen = StaticSids([1,2])
     )
@@ -38,10 +38,10 @@ class Test_factors(unittest.TestCase):
         assert_array_almost_equal(result, expected)
 
         with self.assertRaises(ValueError):
-            HistoricalZscore(window_length=2, inputs=[USEquityPricing.close])
+            HistoricalZScore(window_length=2, inputs=[USEquityPricing.close])
 
         with self.assertRaises(ValueError):
-            HistoricalZscore(window_length=4, inputs=[USEquityPricing.close,
+            HistoricalZScore(window_length=4, inputs=[USEquityPricing.close,
                                                       USEquityPricing.volume])
 
 
