@@ -13,7 +13,7 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
 
 特别说明
 ========
-- **只针对Windows10操作系统，参考环境**
+- **仅在Windows10操作系统下完成测试。参考环境**
 - Windows10 64位
 - python 3.6.3
 - Visual Studio Community 2017
@@ -21,8 +21,9 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
 
 安装
 ====
-- # 首先安装本频道的cswd odo blaze empyrical
-- pip install git+https://github.com/liudengfeng/zipline
+- 安装本频道的cswd odo blaze empyrical
+- 转移至`setup.py`所在的安装目录
+- python setup.py install
 
 增加模块
 ========
