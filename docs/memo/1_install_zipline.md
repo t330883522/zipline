@@ -2,6 +2,9 @@
 # 前置条件
 + 新建`zipline`环境（名称随意，以下均假定在此环境下安装）
 + 安装`cswd`数据包
++ 确认Visual Studio Installer选项
+	+ [C编译器](https://github.com/liudengfeng/zipline/blob/master/docs/memo/images/installer_1.PNG)
+	+ [本机开发工具](https://github.com/liudengfeng/zipline/blob/master/docs/memo/images/installer_2.PNG)
 
 # 依赖包
 
