@@ -14,5 +14,5 @@ def earliest_possible_date():
 def get_treasury_data(start_date, end_date):
     """读取期间数据"""
     df = TreasuryData.read(start_date, end_date)
-    df.index = pd.to_datetime(df.index)
-    return df.tz_localize('UTC')
+    df.index = pd.to_datetime(df.index, utc=True)
+    return df
