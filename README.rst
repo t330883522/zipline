@@ -15,6 +15,7 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
 ========
 - **仅在Windows10操作系统下完成测试。参考环境**
 - Windows10 64位
+- Anaconda3 64位
 - python 3.6.3
 - Visual Studio Community 2017
 
