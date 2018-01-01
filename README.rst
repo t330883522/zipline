@@ -57,7 +57,7 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
 ``quantalib``
 =============
 
-整合适用于\ ``pipeline``\ 的\ ``talib``\ 。暂不包含模式识别。
+整合适用于\ ``pipeline``\ 的\ ``talib``\ 
 
 回测案例
 ========
