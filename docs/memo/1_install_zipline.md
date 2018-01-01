@@ -3,8 +3,6 @@
 + 新建`zipline`环境（名称随意，以下均假定在此环境下安装）
 + 安装`cswd`数据包
 
-> pip install git+https://github.com/liudengfeng/cswd
-
 # 依赖包
 
 ## `pip`安装
@@ -28,9 +26,6 @@
 	+ 移除原有`odo`及`blaze`
 	+ 安装改版`odo`和`blaze`
 
-> pip install git+https://github.com/liudengfeng/odo
-
-> pip install git+https://github.com/liudengfeng/blaze
 
 + **注意**
 	+ 如果升级`odo`和`blaze`包，请注意`networkx`用法更改部分
