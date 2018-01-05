@@ -298,3 +298,4 @@ zipline/zipline.egg-info/
 *.pyproj
 *.sln
 /docs/memo/pipeline/基础数据/.ipynb_checkpoints
+/.eggs
