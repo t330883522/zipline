@@ -18,7 +18,7 @@ def ingest_data(bundle_name):
     log.info('prepare "{}" dataset ......'.format(bundle_name))
     bundles_module.ingest(bundle_name, show_progress=True)
     duration = format(time.time() - ingest_start_time, '0.2f')
-    log.info('duration {} seconds'.format(duration))
+    log.info('{} was done. duration is {} seconds'.format(bundle_name, duration))
 
 
 def main():
@@ -26,13 +26,12 @@ def main():
     ingest_start_time = time.time()
     convert_sql_data_to_bcolz()
     duration = format(time.time() - ingest_start_time, '0.2f')
-    log.info('duration {} seconds'.format(duration))
+    log.info('{} was done. duration is {} seconds'.format('to_bcolz', duration))
 
     # keep last 2
     for bundle_name in ('cnstock','.test'):
         ingest_data(bundle_name)
         bundles_module.clean(bundle_name, keep_last=2)
-
 
 if __name__ == '__mani__':
     main()
