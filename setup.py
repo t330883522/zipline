@@ -295,12 +295,13 @@ setup(
     entry_points={
         'console_scripts': [
             'zipline = zipline.__main__:main',
-            'margin_data_to_bcolz = am9:to_bcolz',
+            'margin_data_to_bcolz = margin_data_to_bcolz:to_bcolz',
             'daily_ingest = prepare:main',
         ],
     },
     author='Quantopian Inc.',
     author_email='opensource@quantopian.com',
+    python_requires='>=3.6',
     packages=find_packages(include=['zipline', 'zipline.*']),
     ext_modules=ext_modules,
     include_package_data=True,
