@@ -32,7 +32,7 @@ def main():
     for bundle_name in ('cnstock','.test'):
         ingest_data(bundle_name)
         bundles_module.clean(bundle_name, keep_last=2)
-    to_bcolz()
+
 
 if __name__ == '__mani__':
     main()
