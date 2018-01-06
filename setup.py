@@ -295,7 +295,7 @@ setup(
     entry_points={
         'console_scripts': [
             'zipline = zipline.__main__:main',
-            'margin_data_to_bcolz = margin_data_to_bcolz:to_bcolz',
+            'margin_data_to_bcolz = margin_data_to_bcolz:main',
             'daily_ingest = prepare:main',
         ],
     },

@@ -13,7 +13,7 @@ logbook.StreamHandler(sys.stdout).push_application()
 log = logbook.Logger('ingest'.upper())
 
 
-def to_bcolz():
+def main():
     """margin data to bcolz"""
     from zipline.pipeline.fundamentals.ctable import convert_sql_data_to_bcolz
     ingest_start_time = time.time()

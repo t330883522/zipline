@@ -21,7 +21,7 @@ def ingest_data(bundle_name):
     log.info('duration {} seconds'.format(duration))
 
 
-def to_bcolz():
+def main():
     from zipline.pipeline.fundamentals.ctable import convert_sql_data_to_bcolz
     ingest_start_time = time.time()
     convert_sql_data_to_bcolz()
