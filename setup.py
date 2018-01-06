@@ -291,7 +291,7 @@ setup(
     version='1.2.0',#versioneer.get_version(),
     cmdclass=LazyBuildExtCommandClass(versioneer.get_cmdclass()),
     description='A backtester for financial algorithms.',
-    scripts=['scripts/am9.py','scripts/prepare.py'],
+    scripts=['scripts/margin_data_to_bcolz.py','scripts/prepare.py'],
     entry_points={
         'console_scripts': [
             'zipline = zipline.__main__:main',

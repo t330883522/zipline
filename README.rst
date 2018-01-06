@@ -25,7 +25,6 @@ Zipline目前有一个免费的\ `回测平台 <https://www.quantopian.com>`__\ 
 - 安装本频道的cswd odo blaze empyrical
 - 转移至`setup.py`所在的安装目录
 - python setup.py install
-- 或者按照依赖项后, `pip install git+https://github.com/liudengfeng/zipline.git`
 
 增加模块
 ========
