@@ -1,5 +1,5 @@
 """
-am 9 更新融资融券数据
+am 9 margin data to bcolz
 """
 
 import time
@@ -14,9 +14,9 @@ log = logbook.Logger('ingest'.upper())
 
 
 def to_bcolz():
-    """转换部分sql数据到bcolz格式"""
+    """margin data to bcolz"""
     from zipline.pipeline.fundamentals.ctable import convert_sql_data_to_bcolz
     ingest_start_time = time.time()
     convert_sql_data_to_bcolz()
     duration = format(time.time() - ingest_start_time, '0.2f')
-    log.info('耗时{}秒'.format(duration))
+    log.info('duration:{} seconds'.format(duration))
