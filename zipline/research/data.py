@@ -46,7 +46,7 @@ def get_pricing(codes, fields = 'close', start = None, end = None,
 
     Parameters
     ----------
-    stocks : [str或Equity对象]
+    codes : [str或Equity对象]
         股票或指数代码列表，或Equity对象
     fields : [str]
         读取列名称

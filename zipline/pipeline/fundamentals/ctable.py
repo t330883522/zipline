@@ -128,7 +128,7 @@ def _write_one_table(expr, ndays=0):
     logger.info('File was saved in {}'.format(rootdir))
 
 
-def convert_sql_data_to_bcolz():
+def convert_sql_data_to_bcolz(tables=None):
     """
     将部分sql数据表以bcolz格式存储，提高数据集加载速度
 
@@ -136,8 +136,9 @@ def convert_sql_data_to_bcolz():
     ------
         写入财务报告数据时，默认财务报告公告日期为报告期后45天
     """
+    to_does = tables if tables else INCLUDE_TABLES
     for table in STOCK_DB.fields:
-        if table in INCLUDE_TABLES:
+        if table in to_does:
             logger.info('preprocessing table:"{}"'.format(table))
             expr = STOCK_DB[table]
             ndays = 45 if table in QUARTERLY_TABLES else 0

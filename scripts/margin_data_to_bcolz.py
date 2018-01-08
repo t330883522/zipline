@@ -17,6 +17,6 @@ def main():
     """margin data to bcolz"""
     from zipline.pipeline.fundamentals.ctable import convert_sql_data_to_bcolz
     ingest_start_time = time.time()
-    convert_sql_data_to_bcolz()
+    convert_sql_data_to_bcolz('margins')
     duration = format(time.time() - ingest_start_time, '0.2f')
     log.info('duration:{} seconds'.format(duration))
