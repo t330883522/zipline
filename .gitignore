@@ -299,3 +299,4 @@ zipline/zipline.egg-info/
 *.sln
 /docs/memo/pipeline/基础数据/.ipynb_checkpoints
 /.eggs
+/docs/memo/pipeline/.ipynb_checkpoints
